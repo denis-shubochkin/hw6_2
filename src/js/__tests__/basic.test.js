@@ -9,12 +9,7 @@ test('damage recieved', () => {
 test('player is dead after 2 attacks', () => {
   const pOne = new Character('Иван', 'Лучник');
   Character.prototype.damage.call(pOne, 2000);
-  try {
-    // eslint-disable-next-line no-unused-vars
-    const ff = Character.prototype.damage.call(pOne, 2000);
-  } catch (e) {
-    expect(e).toThrow();
-  }
+  expect(() => { Character.prototype.damage.call(pOne, 2000); }).toThrow();
 });
 
 
